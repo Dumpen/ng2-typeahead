@@ -1,5 +1,4 @@
-node_modules/
-dist/
-*.d.ts
-*.log
-*.tgz
+typings/
+build/
+node_modules
+npm-debug.log
