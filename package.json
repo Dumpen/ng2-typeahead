@@ -1,6 +1,6 @@
 {
   "name": "ng2-typeahead-dumpen",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "A simple Angular2 typeahead/autocomplete component with no third-party dependencies.",
   "license": "MIT",
   "readmeFilename": "README.md",
