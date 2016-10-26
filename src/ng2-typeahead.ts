@@ -16,7 +16,7 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR: any = {
 
       <input #inputElement
         [placeholder]="placeholder"
-        [readonly]="readonly === true"
+        [readonly]="readonly"
         [(ngModel)]="input"
         type="text"
         [ngClass]="{'typeahead-input': true, 'typeahead-input-has-selection': hasSelection()}"
