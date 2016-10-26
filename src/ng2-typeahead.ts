@@ -398,7 +398,7 @@ export class Typeahead implements OnInit, ControlValueAccessor {
      * Called when a focus event is fired on the input element.
      */
     public inputFocus(event: FocusEvent) {
-        if (readonly) return;
+        if (this.readonly) return;
 
         // If the element is receiving focus and it has a selection, then
         // clear the selection. This helps prevent partial editing
