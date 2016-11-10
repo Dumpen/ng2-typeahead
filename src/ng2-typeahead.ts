@@ -36,7 +36,7 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR: any = {
 
       <div #suggestionsContainer
         class="typeahead-suggestions"
-        [hidden]="!areSuggestionsVisible">
+        [style.display]="areSuggestionsVisible ? 'block' : 'none'">
 
         <ul (mouseout)="suggestionsMouseOut($event)">
 
