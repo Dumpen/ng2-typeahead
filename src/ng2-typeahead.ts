@@ -17,9 +17,10 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR: any = {
       <input #inputElement
         [placeholder]="placeholder"
         [readonly]="readonly"
+        [autofocus]="autofocus"
         [(ngModel)]="input"
         type="text"
-        [ngClass]="{'typeahead-input': true, 'typeahead-input-has-selection': hasSelection()}"
+        [ngClass]="{'typeahead-input': true, 'typeahead-input-has-selection': hasSelection(), 'hasContent': input}"
         typeahead="off"
         spellcheck="false"
         (keyup)="inputKeyUp($event)"
@@ -133,6 +134,11 @@ export class Typeahead implements OnInit, ControlValueAccessor {
      * Input element readonly.
      */
     @Input() readonly: boolean = false;
+
+    /**
+     * Input element readonly.
+     */
+    @Input() autofocus: boolean = false;
 
     /**
      * The property of a list item that should be used for matching.
