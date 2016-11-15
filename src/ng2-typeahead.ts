@@ -12,7 +12,7 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR: any = {
 @Component({
     selector: 'typeahead',
     template: `
-    <div class="typeahead">
+    <div class="typeahead" [class.hasContent]="input">
 
       <input #inputElement
         [placeholder]="placeholder"
@@ -20,7 +20,7 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR: any = {
         [autofocus]="autofocus"
         [(ngModel)]="input"
         type="text"
-        [ngClass]="{'typeahead-input': true, 'typeahead-input-has-selection': hasSelection(), 'hasContent': input}"
+        [ngClass]="{'typeahead-input': true, 'typeahead-input-has-selection': hasSelection()}"
         typeahead="off"
         spellcheck="false"
         (keyup)="inputKeyUp($event)"
