@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, ViewChild, OnInit, forwardRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild, OnInit, forwardRef, Renderer, ElementRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 const noop = () => { };
@@ -17,7 +17,6 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR: any = {
       <input #inputElement
         [placeholder]="placeholder"
         [readonly]="readonly"
-        [autofocus]="autofocus"
         [(ngModel)]="input"
         type="text"
         [ngClass]="{'typeahead-input': true, 'typeahead-input-has-selection': hasSelection()}"
@@ -203,8 +202,7 @@ export class Typeahead implements OnInit, ControlValueAccessor {
     /**
      * Creates and initializes a new typeahead component.
      */
-    constructor() {
-    }
+    constructor(public renderer: Renderer, public elementRef: ElementRef) { }
 
     /**
      * Implement this interface to execute custom initialization logic after your
@@ -215,7 +213,13 @@ export class Typeahead implements OnInit, ControlValueAccessor {
      * children have been checked. It is invoked only once when the directive is
      * instantiated.
      */
-    public ngOnInit() {
+    ngOnInit() {
+        if (this.autofocus) {
+            this.renderer.invokeElementMethod(
+                this.inputElement.nativeElement,
+                'focus',
+                []);
+        }
     }
 
     /**
